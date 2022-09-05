@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunyou.xemceappendix.mapper.file.FileMapper">
+    <insert id="insertFile" parameterType="com.yunyou.xemceappendix.entity.file.FileEntity">
+        insert into file(filepath,filename,filesuffix) values(#{filePath},#{fileName},#{fileSuffix});
+    </insert>
+
+    <select id="selectFileById" parameterType="string" resultType="com.yunyou.xemceappendix.entity.file.FileEntity">
+        select * from file where id=#{id};
+    </select>
+</mapper>

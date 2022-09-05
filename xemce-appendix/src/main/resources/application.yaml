@@ -1,0 +1,60 @@
+
+server:
+  port: 6080
+
+
+spring:
+  web-stat-filter:
+    enabled: true
+    url-pattern: /*
+    exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*,"
+
+    stat-view-servlet:
+      enabled: true
+      login-username: admin
+      login-password: admin
+      reset-enable: false
+      url-pattern: /druid/*
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@192.180.4.13:1521:orcl
+    username: fileuser
+    password: fileuser
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 5
+      connection-test-query: select 1
+  quartz:
+    job-store-type: jdbc
+  mvc:
+    view:
+      prefix: /
+      suffix: .html
+  thymeleaf:
+    mode: HTML5
+    cache: false
+    encoding: utf-8
+    prefix: classpath:/static/
+    suffix: .html
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.protransfer.procurementtransfer.entity
+
+logging:
+  level:
+    me:
+      leehao:
+        mybatisdemo:
+          mapper : debug
+
+jodconverter:
+  local:
+    office-home: C:\Program Files (x86)\OpenOffice 4
+    max-tasks-per-process: 10
+    port-numbers: 8100
+    enabled: true
+
+pdfSaving_PATH: D:\openoffice
+
+FileSaving_PATH: D:\filedata\

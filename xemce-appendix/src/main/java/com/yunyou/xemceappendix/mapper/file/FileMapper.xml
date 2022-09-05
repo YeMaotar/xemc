@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yunyou.xemceappendix.mapper.file.FileMapper">
+    <!--id对应UserDAO接口方法名-->
+    <!--parameterType对应参数类型-->
+    <!--resultType对应返回值类型-->
+    <!--注意sql语句字段和数据库对应-->
+    <select id="selectFileById" resultType="com.yunyou.xemceappendix.entity.file.FileEntity">
+        SELECT * FROM filerecord where id = ${id}
+    </select>
+    <select id="selectFileByFileName" resultType="com.yunyou.xemceappendix.entity.file.FileEntity">
+        select * from filerecord where fileName = '${fileName}' and STATE='1' order by ts desc
+    </select>
+    <insert id="insertFile" parameterType="com.yunyou.xemceappendix.entity.file.FileEntity">
+        insert into filerecord(filePath,fileName,fileSuffix,ts,OPERTYPE,STATE)
+        values(#{filePath},#{fileName},#{fileSuffix},#{ts},#{operType},#{state})
+    </insert>
+    <update id="updateFileByFilePath" parameterType="java.lang.String">
+        update filerecord set STATE = '0' where filePath = '${filePath}'
+    </update>
+
+</mapper>
