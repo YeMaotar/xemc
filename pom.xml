@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.10</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.yunyou</groupId>
+    <artifactId>xemc</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>xemc</name>
+    <description>Demo project for Spring Boot</description>
+    <!--版本控制器-->
+    <properties>
+        <java.version>1.8</java.version>
+        <mybatis.version>2.2.2</mybatis.version>
+        <oracle.version>11.2.0.4</oracle.version>
+        <validation.version>2.0.2</validation.version>
+        <hotool.version>5.4.5</hotool.version>
+        <pagehelper.version>1.2.10</pagehelper.version>
+        <httpclient.version>4.5.13</httpclient.version>
+        <fastjson.version>2.0.7</fastjson.version>
+        <mybatisplus.version>3.5.1</mybatisplus.version>
+        <mysql.version>8.0.28</mysql.version>
+        <druid.version>1.2.6</druid.version>
+        <lang3.sersion>3.9</lang3.sersion>
+        <jodconverter.version>4.2.2</jodconverter.version>
+        <httpmime.version>4.5.13</httpmime.version>
+    </properties>
+    <packaging>pom</packaging>
+    <modules>
+        <!--采购平台中转模块-->
+        <module>xemc-srm</module>
+        <!--系统集成定时任务模块-->
+        <module>xemc-quartz</module>
+        <!--人力附件管理模块-->
+        <module>xemce-appendix</module>
+    </modules>
+    <dependencyManagement>
+        <dependencies>
+            <!--mybatis-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!--oracle驱动-->
+            <dependency>
+                <groupId>com.oracle.database.jdbc</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>${oracle.version}</version>
+            </dependency>
+            <!--实体和方法验证的元数据模型和API-->
+            <dependency>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <version>${validation.version}</version>
+            </dependency>
+            <!--Java工具类库-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hotool.version}</version>
+            </dependency>
+            <!--分页插件-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <!--HTTP协议的Java工具集-->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+            <!--alibabaJson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--mybatis 批量插入框架 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+            <!--mysql 驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- 阿里数据库连接池fhadmin.cn -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${lang3.sersion}</version>
+            </dependency>
+            <!--jodconverter 本地支持包 -->
+            <!-- https://mvnrepository.com/artifact/org.jodconverter/jodconverter-local -->
+            <dependency>
+                <groupId>org.jodconverter</groupId>
+                <artifactId>jodconverter-local</artifactId>
+                <version>${jodconverter.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpmime -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>${httpmime.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.5.10</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
