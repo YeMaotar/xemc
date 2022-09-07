@@ -145,6 +145,10 @@ public class JobController {
             message=workservice.WmsPsnService();
         }else if("com.xdjt.quartz.job.mes.MaterialFrame".equals(jobClassName)){
             message=workservice.WMSMaterialFrameService();
+        }else if("com.yunyou.xemcquartz.job.mes.MESQuanXuJob".equals(jobClassName)){
+            message=workservice.MESQuanXuService();
+        }else if("com.yunyou.xemcquartz.job.mes.MESGongXuJob".equals(jobClassName)){
+            message=workservice.MESGongXuService();
         }else{
             message ="没有找到该接口";
         }

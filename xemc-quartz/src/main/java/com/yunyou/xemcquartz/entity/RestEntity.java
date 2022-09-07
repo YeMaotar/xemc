@@ -29,4 +29,6 @@ public class RestEntity {
     private String deliveryjson;
     private String beginmateialjson;
     private String WMSMaterialFramejson;
+    private String MESQuanXujson;
+    private String MESGongXujson;
 }

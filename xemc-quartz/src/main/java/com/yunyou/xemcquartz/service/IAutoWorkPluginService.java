@@ -30,4 +30,8 @@ public interface IAutoWorkPluginService{
     public String NCBeginMaterial();
 
     public String WMSMaterialFrameService();
+
+    public String MESGongXuService();
+
+    public String MESQuanXuService();
 }

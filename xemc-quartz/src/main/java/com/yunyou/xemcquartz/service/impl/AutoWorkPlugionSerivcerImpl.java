@@ -126,4 +126,14 @@ public class AutoWorkPlugionSerivcerImpl implements IAutoWorkPluginService {
     public String WMSMaterialFrameService() {
         return getPrintln(rest.getWMSMaterialFramejson());
     }
+
+    @Override
+    public String MESGongXuService() {
+        return getPrintln(rest.getMESGongXujson());
+    }
+
+    @Override
+    public String MESQuanXuService() {
+        return getPrintln(rest.getMESQuanXujson());
+    }
 }
