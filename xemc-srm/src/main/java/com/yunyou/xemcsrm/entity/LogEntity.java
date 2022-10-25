@@ -1,5 +1,6 @@
 package com.yunyou.xemcsrm.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -10,20 +11,24 @@ import java.io.Serializable;
 @TableName("bd_log")
 public class LogEntity implements Serializable {
     /**接口类型*/
-    private String type;
+    @TableField("xemclogtype")
+    private String xemclogtype;
     /**请求报文*/
+    @TableField("request")
     private String request;
     /**响应报文*/
+    @TableField("response")
     private String response;
     /**时间戳*/
+    @TableField("ts")
     private String ts;
 
-    public String getType() {
-        return type;
+    public String getXemclogtype() {
+        return xemclogtype;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setXemclogtype(String xemclogtype) {
+        this.xemclogtype = xemclogtype;
     }
 
     public String getRequest() {
@@ -48,15 +53,5 @@ public class LogEntity implements Serializable {
 
     public void setTs(String ts) {
         this.ts = ts;
-    }
-
-    @Override
-    public String toString() {
-        return "LogEntity{" +
-                "type='" + type + '\'' +
-                ", request='" + request + '\'' +
-                ", response='" + response + '\'' +
-                ", ts='" + ts + '\'' +
-                '}';
     }
 }

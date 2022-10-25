@@ -13,9 +13,9 @@ public class MaterialEntity implements Serializable {
     private String measdoc;
     private String name;
     private String pk;
-    private String spec;
+    private String materialspec;
     private String ts;
-    private String type;
+    private String materialtype;
 
     public String getClasscode() {
         return classcode;
@@ -65,12 +65,12 @@ public class MaterialEntity implements Serializable {
         this.pk = pk;
     }
 
-    public String getSpec() {
-        return spec;
+    public String getMaterialSpec() {
+        return materialspec;
     }
 
-    public void setSpec(String spec) {
-        this.spec = spec;
+    public void setMaterialSpec(String materialspec) {
+        this.materialspec = materialspec;
     }
 
     public String getTs() {
@@ -81,25 +81,17 @@ public class MaterialEntity implements Serializable {
         this.ts = ts;
     }
 
-    public String getType() {
-        return type;
+    public String getMaterialType() {
+        return materialtype;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MaterialEntity that = (MaterialEntity) o;
-        return Objects.equals(classcode, that.classcode) && Objects.equals(code, that.code) && Objects.equals(enablestate, that.enablestate) && Objects.equals(measdoc, that.measdoc) && Objects.equals(name, that.name) && Objects.equals(pk, that.pk) && Objects.equals(spec, that.spec) && Objects.equals(ts, that.ts) && Objects.equals(type, that.type);
+    public void setMaterialType(String materialtype) {
+        this.materialtype = materialtype;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(classcode, code, enablestate, measdoc, name, pk, spec, ts, type);
+        return Objects.hash(classcode, code, enablestate, measdoc, name, pk, materialspec, ts, materialtype);
     }
 
     @Override
@@ -111,9 +103,9 @@ public class MaterialEntity implements Serializable {
                 ", measdoc='" + measdoc + '\'' +
                 ", name='" + name + '\'' +
                 ", pk='" + pk + '\'' +
-                ", spec='" + spec + '\'' +
+                ", materialspec='" + materialspec + '\'' +
                 ", ts='" + ts + '\'' +
-                ", type='" + type + '\'' +
+                ", materialtype='" + materialtype + '\'' +
                 '}';
     }
 }

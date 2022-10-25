@@ -3,10 +3,7 @@ package com.yunyou.xemcsrm.contorller;
 import com.yunyou.xemcsrm.entity.*;
 import com.yunyou.xemcsrm.service.IUapbdService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -78,9 +75,9 @@ public class UapbdController {
      * @param supper
      * @return
      */
-    @PostMapping("supper")
-    public boolean addSupplier(@RequestBody List<SupplierEntity> supper){
-        return service.addSupplier(supper);
+    @GetMapping("supper")
+    public List<SupplierEntity> addSupplier(){
+        return service.addSupplier();
         //return true;
     }
     /**

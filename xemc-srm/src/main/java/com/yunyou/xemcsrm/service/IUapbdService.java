@@ -15,7 +15,7 @@ public interface IUapbdService {
     boolean addMaterialClass(List<MaterialclassEntity> materialclass);
     boolean addPson(List<PsonEntity> dept);
     boolean addStordoc(List<StordocEntity> stordoc);
-    boolean addSupplier(List<SupplierEntity> supplier);
+    List<SupplierEntity> addSupplier();
     boolean addObject(List<ObjectEntity> object);
 
 }

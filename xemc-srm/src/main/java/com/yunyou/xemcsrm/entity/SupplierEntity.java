@@ -11,6 +11,24 @@ public class SupplierEntity implements Serializable {
     private String name;
     private String pk;
     private String ts;
+    private String org;
+    private String supplierclass;
+
+    public String getOrg() {
+        return org;
+    }
+
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    public String getSupplierclass() {
+        return supplierclass;
+    }
+
+    public void setSupplierclass(String supplierclass) {
+        this.supplierclass = supplierclass;
+    }
 
     public String getCode() {
         return code;
@@ -60,6 +78,8 @@ public class SupplierEntity implements Serializable {
                 ", name='" + name + '\'' +
                 ", pk='" + pk + '\'' +
                 ", ts='" + ts + '\'' +
+                ", org='" + org + '\'' +
+                ", supplierclass='" + supplierclass + '\'' +
                 '}';
     }
 }

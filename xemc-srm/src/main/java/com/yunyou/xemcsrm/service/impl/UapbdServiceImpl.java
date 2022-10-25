@@ -1,5 +1,6 @@
 package com.yunyou.xemcsrm.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yunyou.xemcsrm.entity.*;
 import com.yunyou.xemcsrm.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,9 +64,13 @@ public  class UapbdServiceImpl implements IUapbdService {
     }
 
     @Override
-    public boolean addSupplier(List<SupplierEntity> supplier) {
-        supplierservice.saveBatch(supplier);
-        return true;
+    public List<SupplierEntity> addSupplier() {
+        //supplierservice.saveBatch(supplier);
+        //by zhangzhw 20221018
+        QueryWrapper<SupplierEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("ts","2005-09-26");
+        List<SupplierEntity> listsuppler = supplierservice.list(queryWrapper);
+        return listsuppler;
     }
 
     @Override

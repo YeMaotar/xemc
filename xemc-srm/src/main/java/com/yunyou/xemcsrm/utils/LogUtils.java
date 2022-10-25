@@ -9,7 +9,7 @@ import com.yunyou.xemcsrm.entity.LogEntity;
 public  class LogUtils {
     public static LogEntity getEntity(String type, String request, String response){
         LogEntity entity = new LogEntity();
-        entity.setType(type);
+        entity.setXemclogtype(type);
         entity.setRequest(request);
         entity.setResponse(response);
         return entity;

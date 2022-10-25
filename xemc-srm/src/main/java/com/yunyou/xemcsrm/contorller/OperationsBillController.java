@@ -1,6 +1,7 @@
 package com.yunyou.xemcsrm.contorller;
 
 import com.yunyou.xemcsrm.config.XemcUrlComponent;
+import com.yunyou.xemcsrm.entity.LogEntity;
 import com.yunyou.xemcsrm.utils.LogUtils;
 import com.yunyou.xemcsrm.service.LogSerivce;
 import com.yunyou.xemcsrm.utils.RestClientUtils;
@@ -48,8 +49,8 @@ public class OperationsBillController {
     @PostMapping("/ctpu")
     public String NcCtPuToEBill(@RequestBody String requesting){
         //String url = "http://192.168.1.20:8080/rest-api/receive/erpContractResult";
-        String response =  RestClientUtils.doPostJson(ecgurl.getCtpu(),requesting);
-        logSerivce.save(LogUtils.getEntity("采购合同",requesting,response));
+        //String response =  RestClientUtils.doPostJson(ecgurl.getCtpu(),requesting);
+        logSerivce.save(LogUtils.getEntity("采购合同",requesting,null));
         return "成功";
     }
 //
@@ -60,10 +61,11 @@ public class OperationsBillController {
      */
     @PostMapping("/ectpu")
     public String EcgToNcCtPuBill(@RequestBody String requesting){
-        //String url = "http://192.168.1.5:80/uapws/rest/ecgservice/creatbill";
-        logSerivce.save(LogUtils.getEntity("采购平台采购合同",requesting,null));
+        String url = "http://192.168.1.2:80/uapws/rest/ecgservice/creatbill";
         String response =  RestClientUtils.doPostJson(ecgurl.getEctpu(),requesting);
-        return "成功";
+        logSerivce.save(LogUtils.getEntity("采购平台采购合同",requesting,response));
+        //return "成功";
+        return response;
     }
     /**
      * E年标计划调用该接口转发NC
