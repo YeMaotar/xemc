@@ -5,13 +5,13 @@ server:
 ecg:
   service:
     # 采购平台请购单地址
-    praybill: http://172.16.100.105:8001/rest-api/receive/ncPoOrder
+    praybill: http://localhost:8001/rest-api/receive/ncPoOrder
     # 采购平台合同地址
-    ctpu: http://172.16.100.105:8001/rest-api/receive/erpContractResult
+    ctpu: http://localhost:8001/rest-api/receive/erpContractResult
     # ERP采购合同地址
-    ectpu: http://192.180.2.52:8080/uapws/rest/ecgservice/creatbill
+    ectpu: http://localhost:8080/uapws/rest/ecgservice/creatbill
     # ERP年标计划地址
-    eplan: http://192.180.2.52:8080/uapws/rest/ecgservice/creatplanbill
+    eplan: http://localhost:8080/uapws/rest/ecgservice/creatplanbill
 
 
 
@@ -20,7 +20,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: oracle.jdbc.OracleDriver
     druid:
-      url: jdbc:oracle:thin:@192.180.4.25:1521:inter
+      url: jdbc:oracle:thin:@localhost:1521:inter
       username: xdjt
       password: xdjt123$
       # 初始连接数
