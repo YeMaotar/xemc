@@ -6,6 +6,8 @@ import com.yunyou.xemcsrm.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -68,7 +70,7 @@ public  class UapbdServiceImpl implements IUapbdService {
         //supplierservice.saveBatch(supplier);
         //by zhangzhw 20221018
         QueryWrapper<SupplierEntity> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("ts","2005-09-26");
+        queryWrapper.eq("ts",getDate());
         List<SupplierEntity> listsuppler = supplierservice.list(queryWrapper);
         return listsuppler;
     }
@@ -77,5 +79,14 @@ public  class UapbdServiceImpl implements IUapbdService {
     public boolean addObject(List<ObjectEntity> object) {
         objectService.saveBatch(object);
         return true;
+    }
+    /**
+     * 日期转化格式
+     */
+    public String getDate(){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        String today = format.format(date);
+        return today;
     }
 }

@@ -31,4 +31,14 @@ public class RestEntity {
     private String WMSMaterialFramejson;
     private String MESQuanXujson;
     private String MESGongXujson;
+
+    private String ecgurl;
+    private String ecgdeptjson;
+    private String ecgmaterialjson;
+    private String ecgmaterialclassjson;
+    private String ecgorgjson;
+    private String ecgobjectjson;
+    private String ecgpsonjson;
+    private String ecgstordocjson;
+    private String ecgsupplierjson;
 }

@@ -30,6 +30,17 @@ public class AutoWorkPlugionSerivcerImpl implements IAutoWorkPluginService {
     }
 
     /**
+     * 打印输出信息
+     */
+    private String getPrintlnEcg(String json){
+        StringBuilder pri = new StringBuilder();
+        pri.append("采购平台请求参数：").append(json);
+        String sr = RestUtils.doPostJson(rest.getEcgurl(), json);
+        pri.append("返回参数：").append(sr).append("任务结束时间：").append(LocalDateTime.now());
+        return  pri.toString();
+    }
+
+    /**
      * bom后台任务
      */
     @Override
@@ -135,5 +146,45 @@ public class AutoWorkPlugionSerivcerImpl implements IAutoWorkPluginService {
     @Override
     public String MESQuanXuService() {
         return getPrintln(rest.getMESQuanXujson());
+    }
+
+    @Override
+    public String EcgDeptService() {
+        return getPrintlnEcg(rest.getEcgdeptjson());
+    }
+
+    @Override
+    public String EcgMaterialService() {
+        return getPrintlnEcg(rest.getEcgmaterialjson());
+    }
+
+    @Override
+    public String EcgMaterialclassService() {
+        return getPrintlnEcg(rest.getEcgmaterialclassjson());
+    }
+
+    @Override
+    public String EcgOrgService() {
+        return getPrintlnEcg(rest.getEcgorgjson());
+    }
+
+    @Override
+    public String EcgObjectService() {
+        return getPrintlnEcg(rest.getEcgobjectjson());
+    }
+
+    @Override
+    public String EcgPsonService() {
+        return getPrintlnEcg(rest.getEcgpsonjson());
+    }
+
+    @Override
+    public String EcgStordocService() {
+        return getPrintlnEcg(rest.getEcgstordocjson());
+    }
+
+    @Override
+    public String EcgsupplierService() {
+        return getPrintlnEcg(rest.getEcgsupplierjson());
     }
 }

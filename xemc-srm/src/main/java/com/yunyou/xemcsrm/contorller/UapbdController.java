@@ -72,7 +72,6 @@ public class UapbdController {
     }
     /**
      * 供应商入口
-     * @param supper
      * @return
      */
     @GetMapping("supper")

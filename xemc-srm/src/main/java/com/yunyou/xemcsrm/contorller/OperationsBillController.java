@@ -1,7 +1,7 @@
 package com.yunyou.xemcsrm.contorller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yunyou.xemcsrm.config.XemcUrlComponent;
-import com.yunyou.xemcsrm.entity.LogEntity;
 import com.yunyou.xemcsrm.utils.LogUtils;
 import com.yunyou.xemcsrm.service.LogSerivce;
 import com.yunyou.xemcsrm.utils.RestClientUtils;
@@ -35,10 +35,13 @@ public class OperationsBillController {
      */
     @PostMapping("/praybill")
     public String NcPrayBillToEBill(@RequestBody String requesting){
-        //String url = "http://192.168.1.20:8080/rest-api/receive/ncPoOrder";
         String response =  RestClientUtils.doPostJson(ecgurl.getPraybill(),requesting);
-        logSerivce.save(LogUtils.getEntity("请购单",requesting,response));
-        return "成功";
+        logSerivce.save(LogUtils.getEntity("nc->ecg请购单",requesting,response));
+        JSONObject strings = JSONObject.parseObject(response);
+        if(strings.get("code").equals("0")){
+            return "成功";
+        }
+        return strings.get("message").toString();
     }
 
     /**
@@ -48,10 +51,13 @@ public class OperationsBillController {
      */
     @PostMapping("/ctpu")
     public String NcCtPuToEBill(@RequestBody String requesting){
-        //String url = "http://192.168.1.20:8080/rest-api/receive/erpContractResult";
-        //String response =  RestClientUtils.doPostJson(ecgurl.getCtpu(),requesting);
-        logSerivce.save(LogUtils.getEntity("采购合同",requesting,null));
-        return "成功";
+        String response =  RestClientUtils.doPostJson(ecgurl.getCtpu(),requesting);
+        logSerivce.save(LogUtils.getEntity("nc->ecg采购合同",requesting,response));
+        JSONObject strings = JSONObject.parseObject(response);
+        if(strings.get("code").equals("0")){
+            return "成功";
+        }
+        return strings.get("message").toString();
     }
 //
     /**
@@ -61,10 +67,8 @@ public class OperationsBillController {
      */
     @PostMapping("/ectpu")
     public String EcgToNcCtPuBill(@RequestBody String requesting){
-        String url = "http://192.168.1.2:80/uapws/rest/ecgservice/creatbill";
         String response =  RestClientUtils.doPostJson(ecgurl.getEctpu(),requesting);
-        logSerivce.save(LogUtils.getEntity("采购平台采购合同",requesting,response));
-        //return "成功";
+        logSerivce.save(LogUtils.getEntity("ecg->nc采购合同",requesting,response));
         return response;
     }
     /**
@@ -74,10 +78,9 @@ public class OperationsBillController {
      */
     @PostMapping("/eplan")
     public String EcgPlanToNcDefBill(@RequestBody String requesting){
-        //String url = "http://192.168.1.5:80/uapws/rest/ecgservice/creatplanbill";
         String response =  RestClientUtils.doPostJson(ecgurl.getEplan(),requesting);
-        logSerivce.save(LogUtils.getEntity("年标合同",requesting,null));
-        return "成功";
+        logSerivce.save(LogUtils.getEntity("ecg->nc年标合同",requesting,response));
+        return response;
     }
 }
 

@@ -119,37 +119,56 @@ public class JobController {
     public ResponseEntity<ApiResponse> DoJob(@Valid JobForm form){
         String jobClassName = form.getJobClassName();
         String message;
-        if("com.xdjt.quartz.job.mes.MesBomJob".equals(jobClassName)){
+        if("com.yunyou.xemcquartz.job.mes.MesBomJob".equals(jobClassName)){
             message= workservice.BomService();
-        }else if("com.xdjt.quartz.job.nc.BeginMaterialJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.nc.BeginMaterialJob".equals(jobClassName)){
             message= workservice.NCBeginMaterial();
-        }else if("com.xdjt.quartz.job.wms.ArriveorderJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.ArriveorderJob".equals(jobClassName)){
             message= workservice.WmsArriveorderService();
-        }else if("com.xdjt.quartz.job.wms.CaliberJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.CaliberJob".equals(jobClassName)){
             message=workservice.WmsCaliberService();
-        }else if("com.xdjt.quartz.job.wms.DeliveryJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.DeliveryJob".equals(jobClassName)){
             message= workservice.WmsDeliveryService();
-        }else if("com.xdjt.quartz.job.wms.ExChangUnitJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.ExChangUnitJob".equals(jobClassName)){
             message= workservice.WmsExChangUnitService();
-        }else if("com.xdjt.quartz.job.wms.MaterialClassJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.MaterialClassJob".equals(jobClassName)){
             message= workservice.WmsMaterialClassService();
-        }else if("com.xdjt.quartz.job.wms.MaterialJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.MaterialJob".equals(jobClassName)){
             message= workservice.WmsMaterialService();
-        }else if("com.xdjt.quartz.job.wms.MaterialPackJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.MaterialPackJob".equals(jobClassName)){
             message=workservice.WmsMaterialPackService();
-        }else if("com.xdjt.quartz.job.wms.MeasJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.MeasJob".equals(jobClassName)){
             message=workservice.WmsMeasService();
-        }else if("com.xdjt.quartz.job.wms.OrgJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.OrgJob".equals(jobClassName)){
             message=workservice.WmsOrgService();
-        }else if("com.xdjt.quartz.job.wms.PsnJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartzjob.wms.PsnJob".equals(jobClassName)){
             message=workservice.WmsPsnService();
-        }else if("com.xdjt.quartz.job.mes.MaterialFrame".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.mes.MaterialFrame".equals(jobClassName)){
             message=workservice.WMSMaterialFrameService();
         }else if("com.yunyou.xemcquartz.job.mes.MESQuanXuJob".equals(jobClassName)){
             message=workservice.MESQuanXuService();
         }else if("com.yunyou.xemcquartz.job.mes.MESGongXuJob".equals(jobClassName)){
             message=workservice.MESGongXuService();
-        }else{
+        }
+        //by zhangzhw7 20221109 新增采购平台的基础数据同步
+        else if("com.yunyou.xemcquartz.job.ecg.EcgStordocJob".equals(jobClassName)){
+            message=workservice.EcgStordocService();
+        }else if("com.yunyou.xemcquartz.job.ecg.EcgDeptJob".equals(jobClassName)){
+            message=workservice.EcgDeptService();
+        }else if("com.yunyou.xemcquartz.job.ecg.EcgOrgJob".equals(jobClassName)){
+            message=workservice.EcgOrgService();
+        }else if("com.yunyou.xemcquartz.job.ecg.EcgObjectJob".equals(jobClassName)){
+            message=workservice.EcgObjectService();
+        }else if("com.yunyou.xemcquartz.job.ecg.EcgMaterialJob".equals(jobClassName)){
+            message=workservice.EcgMaterialService();
+        }else if("com.yunyou.xemcquartz.job.ecg.EcgMaterialClassJob".equals(jobClassName)){
+            message=workservice.EcgMaterialclassService();
+        }else if("com.yunyou.xemcquartz.job.ecg.EcgPsonJob".equals(jobClassName)){
+            message=workservice.EcgPsonService();
+        }else if("com.yunyou.xemcquartz.job.ecg.EcgSupplierJob".equals(jobClassName)){
+            message=workservice.EcgsupplierService();
+        }
+        else{
             message ="没有找到该接口";
         }
         System.out.println(message);
