@@ -16,6 +16,6 @@ public class MESGongXuJob extends BaseAutoPluginWork implements BaseJob {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         String flag = super.service.MESGongXuService();
-        log.warn("wms物料辅助属性设置 Job 执行时间: {}", DateUtil.now()+" "+flag);
+        log.warn("mes工序委外后台任务 Job 执行时间: {}", DateUtil.now()+" "+flag);
     }
 }

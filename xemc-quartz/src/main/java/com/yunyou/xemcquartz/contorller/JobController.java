@@ -141,7 +141,7 @@ public class JobController {
             message=workservice.WmsMeasService();
         }else if("com.yunyou.xemcquartz.job.wms.OrgJob".equals(jobClassName)){
             message=workservice.WmsOrgService();
-        }else if("com.yunyou.xemcquartzjob.wms.PsnJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartz.job.wms.PsnJob".equals(jobClassName)){
             message=workservice.WmsPsnService();
         }else if("com.yunyou.xemcquartz.job.mes.MaterialFrame".equals(jobClassName)){
             message=workservice.WMSMaterialFrameService();
