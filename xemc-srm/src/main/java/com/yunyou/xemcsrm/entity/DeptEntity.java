@@ -1,5 +1,6 @@
 package com.yunyou.xemcsrm.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -7,6 +8,7 @@ import java.util.Objects;
 
 @TableName("bd_dept")
 public class DeptEntity implements Serializable {
+    @TableId
     private String pk;
     private String code;
     private String name;

@@ -31,37 +31,38 @@ public  class UapbdServiceImpl implements IUapbdService {
 
     @Override
     public boolean addDept(List<DeptEntity> dept) {
-        deptservice.saveBatch(dept);
+        //deptservice.saveBatch(dept);
+        deptservice.saveOrUpdateBatch(dept);
         return true;
     }
 
     @Override
     public boolean addMaterial(List<MaterialEntity> material) {
-        materialservice.saveBatch(material);
+        materialservice.saveOrUpdateBatch(material);
         return true;
     }
 
     @Override
     public boolean addOrg(List<OrgEntity> org) {
-        orgservice.saveBatch(org);
+        orgservice.saveOrUpdateBatch(org);
         return true;
     }
 
     @Override
     public boolean addMaterialClass(List<MaterialclassEntity> materialclass) {
-        materialClassService.saveBatch(materialclass);
+        materialClassService.saveOrUpdateBatch(materialclass);
         return true;
     }
 
     @Override
     public boolean addPson(List<PsonEntity> pson) {
-        psonservice.saveBatch(pson);
+        psonservice.saveOrUpdateBatch(pson);
         return true;
     }
 
     @Override
     public boolean addStordoc(List<StordocEntity> stordoc) {
-        stordocservice.saveBatch(stordoc);
+        stordocservice.saveOrUpdateBatch(stordoc);
         return true;
     }
 
@@ -70,14 +71,14 @@ public  class UapbdServiceImpl implements IUapbdService {
         //supplierservice.saveBatch(supplier);
         //by zhangzhw 20221018
         QueryWrapper<SupplierEntity> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("ts",getDate());
+        queryWrapper.notInSql("enablestate","'-1','-2'").isNotNull("code").gt("ts",getDate());
         List<SupplierEntity> listsuppler = supplierservice.list(queryWrapper);
         return listsuppler;
     }
 
     @Override
     public boolean addObject(List<ObjectEntity> object) {
-        objectService.saveBatch(object);
+        objectService.saveOrUpdateBatch(object);
         return true;
     }
     /**

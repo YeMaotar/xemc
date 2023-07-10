@@ -13,6 +13,24 @@ public class XemcUrlComponent {
     private String ctpu;
     private String ectpu;
     private String eplan;
+    private String ctpurecall;
+    private String praybillrecall;
+
+    public String getCtpurecall() {
+        return ctpurecall;
+    }
+
+    public void setCtpurecall(String ctpurecall) {
+        this.ctpurecall = ctpurecall;
+    }
+
+    public String getPraybillrecall() {
+        return praybillrecall;
+    }
+
+    public void setPraybillrecall(String praybillrecall) {
+        this.praybillrecall = praybillrecall;
+    }
 
     public String getPraybill() {
         return praybill;

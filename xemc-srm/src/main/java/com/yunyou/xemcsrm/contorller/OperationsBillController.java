@@ -82,5 +82,35 @@ public class OperationsBillController {
         logSerivce.save(LogUtils.getEntity("ecg->nc年标合同",requesting,response));
         return response;
     }
+    /**
+     * nc采购合同调用该接口转发E采购 撤回该单据
+     * @param requesting
+     * @return
+     */
+    @PostMapping("/ctrecall")
+    public String NcCtPuRecallBill(@RequestBody String requesting){
+        String response =  RestClientUtils.doPostJson(ecgurl.getCtpurecall(),requesting);
+        logSerivce.save(LogUtils.getEntity("nc->ecg采购合同撤回",requesting,response));
+        JSONObject strings = JSONObject.parseObject(response);
+        if(strings.get("code").equals("0")){
+            return "成功";
+        }
+        return strings.get("message").toString();
+    }
+    /**
+     * nc采购合同调用该接口转发E采购 撤回该单据
+     * @param requesting
+     * @return
+     */
+    @PostMapping("/payrecall")
+    public String NcPrayBillRecalEBill(@RequestBody String requesting){
+        String response =  RestClientUtils.doPostJson(ecgurl.getPraybillrecall(),requesting);
+        logSerivce.save(LogUtils.getEntity("nc->ecg请购单撤回",requesting,response));
+        JSONObject strings = JSONObject.parseObject(response);
+        if(strings.get("code").equals("0")){
+            return "成功";
+        }
+        return strings.get("message").toString();
+    }
 }
 

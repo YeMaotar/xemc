@@ -1,5 +1,6 @@
 package com.yunyou.xemcsrm.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -10,6 +11,7 @@ public class StordocEntity implements Serializable {
     private String enablestate;
     private String name;
     private String org;
+    @TableId
     private String pk;
     private String ts;
 

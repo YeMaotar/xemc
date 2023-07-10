@@ -1,5 +1,6 @@
 package com.yunyou.xemcsrm.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ public class PsonEntity implements Serializable {
     private String name;
     private String org;
     private String phone;
+    @TableId
     private String pk;
     private String ts;
 

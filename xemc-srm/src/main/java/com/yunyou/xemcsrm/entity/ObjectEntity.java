@@ -1,5 +1,6 @@
 package com.yunyou.xemcsrm.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -9,6 +10,7 @@ public class ObjectEntity implements Serializable {
     private String code;
     private String enablestate;
     private String name;
+    @TableId
     private String pk;
     private String ts;
 
