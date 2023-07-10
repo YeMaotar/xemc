@@ -19,23 +19,37 @@ public class AutoWorkPlugionSerivcerImpl implements IAutoWorkPluginService {
     private RestEntity rest;
 
     /**
+     * OA
      * 打印输出信息
      */
-    private String getPrintln(String json){
+    private String getPrintlnOA(String json){
         StringBuilder pri = new StringBuilder();
         pri.append("请求参数：").append(json);
-        String sr = RestUtils.doPostJson(rest.getUrl(), json);
+        String sr = RestUtils.doPostJson(rest.getOaurl(), json);
         pri.append("返回参数：").append(sr).append("任务结束时间：").append(LocalDateTime.now());
         return  pri.toString();
     }
 
     /**
      * 打印输出信息
+     * 易采购
      */
     private String getPrintlnEcg(String json){
         StringBuilder pri = new StringBuilder();
         pri.append("采购平台请求参数：").append(json);
         String sr = RestUtils.doPostJson(rest.getEcgurl(), json);
+        pri.append("返回参数：").append(sr).append("任务结束时间：").append(LocalDateTime.now());
+        return  pri.toString();
+    }
+
+    /**
+     * 打印输出信息
+     *
+     */
+    private String getPrintln(String json){
+        StringBuilder pri = new StringBuilder();
+        pri.append("请求参数：").append(json);
+        String sr = RestUtils.doPostJson(rest.getUrl(), json);
         pri.append("返回参数：").append(sr).append("任务结束时间：").append(LocalDateTime.now());
         return  pri.toString();
     }
@@ -149,6 +163,11 @@ public class AutoWorkPlugionSerivcerImpl implements IAutoWorkPluginService {
     }
 
     @Override
+    public String OABudgetbudget() {
+        return getPrintlnOA(rest.getOaurl());
+    }
+
+    @Override
     public String EcgDeptService() {
         return getPrintlnEcg(rest.getEcgdeptjson());
     }
@@ -187,4 +206,11 @@ public class AutoWorkPlugionSerivcerImpl implements IAutoWorkPluginService {
     public String EcgsupplierService() {
         return getPrintlnEcg(rest.getEcgsupplierjson());
     }
+
+    @Override
+    public String MrpResponseService() {
+        return getPrintln(rest.getMRPREsponseJson());
+    }
+
+
 }

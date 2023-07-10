@@ -35,6 +35,8 @@ public interface IAutoWorkPluginService{
 
     public String MESQuanXuService();
 
+    public String OABudgetbudget();
+
     //by zhangzhw 2022-11-09 新增一下接口，用于采购平台对接
     public String EcgDeptService();
     public String EcgMaterialService();
@@ -44,4 +46,6 @@ public interface IAutoWorkPluginService{
     public String EcgPsonService();
     public String EcgStordocService();
     public String EcgsupplierService();
+
+    public String MrpResponseService();
 }

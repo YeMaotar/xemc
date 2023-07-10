@@ -41,4 +41,7 @@ public class RestEntity {
     private String ecgpsonjson;
     private String ecgstordocjson;
     private String ecgsupplierjson;
+    private String oaurl;
+
+    private String MRPREsponseJson;
 }

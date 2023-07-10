@@ -141,7 +141,7 @@ public class JobController {
             message=workservice.WmsMeasService();
         }else if("com.yunyou.xemcquartz.job.wms.OrgJob".equals(jobClassName)){
             message=workservice.WmsOrgService();
-        }else if("com.yunyou.xemcquartz.job.wms.PsnJob".equals(jobClassName)){
+        }else if("com.yunyou.xemcquartzjob.wms.PsnJob".equals(jobClassName)){
             message=workservice.WmsPsnService();
         }else if("com.yunyou.xemcquartz.job.mes.MaterialFrame".equals(jobClassName)){
             message=workservice.WMSMaterialFrameService();
@@ -167,6 +167,10 @@ public class JobController {
             message=workservice.EcgPsonService();
         }else if("com.yunyou.xemcquartz.job.ecg.EcgSupplierJob".equals(jobClassName)){
             message=workservice.EcgsupplierService();
+        }else if("com.yunyou.xemcquartz.job.oa.BudgetSyncJob".equals(jobClassName)){
+            message=workservice.OABudgetbudget();
+        }else if("com.yunyou.xemcquartz.job.mes.MrpResponse".equals(jobClassName)){
+            message=workservice.MrpResponseService();
         }
         else{
             message ="没有找到该接口";
